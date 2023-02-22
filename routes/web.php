@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AutentikasiController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +26,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// frontend starts
+Route::get('/storage-link', function () {
+    Artisan::call('storage:link');
+    dd('Storage linked!');
+});
+Route::get('/config-cache', function () {
+    Artisan::call('config:cache');
+    dd('config cleared!');
+});
+Route::get('/migrate', function () {
+    Artisan::call('migrate', [
+        '--force' => true,
+     ]);
+    dd('migrated!');
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
 
 Route::get('login', [AutentikasiController::class, 'login'])->name('login');
