@@ -67,7 +67,7 @@ class User extends Component
 
     public function render()
     {
-        $this->users = ModelsUser::with('detail')->where('email', '!=', 'root@root.com')->where(function ($query) {
+        $this->users = ModelsUser::with('detail')->where('email', '!=', 'root@root.com')->where('email', '!=', 'admin@admin.com')->where(function ($query) {
             $query->where('name', 'LIKE', '%'.$this->search.'%')
             ->orWhere('phone', 'LIKE', '%'.$this->search.'%')
             ->orWhere('email', 'LIKE', '%'.$this->search.'%')
