@@ -1,0 +1,21 @@
+# /node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/storage/app/public/jasa
+/storage/app/public/ktp
+/storage/app/public/news
+/storage/app/public/product
+/storage/app/public/profile
+/storage/app/public/slip
+# /vendor
+.env
+# .env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
