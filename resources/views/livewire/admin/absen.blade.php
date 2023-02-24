@@ -60,7 +60,7 @@
                         <tr>
                             <td class="align-middle text-center">{{ ($page - 1) * $total_show + $i +1 }}</td>
                             <td class="align-middle text-center text-capitalize">{{ $item->users->name}}</td>
-                            <td class="align-middle text-center text-capitalize">{{ $item->outlet->nama_outlet}}</td>
+                            <td class="align-middle text-center text-capitalize">{{ $item->outlet->nama_outlet ?? 'Invalid Outlet'}}</td>
                             <td class="align-middle text-center text-capitalize">{{ $item->shift}}</td>
                             <td class="align-middle text-center">{{ $item->type }}</td>
                             <td class="align-middle text-center text-capitalize">{{ $item->time}}</td>
