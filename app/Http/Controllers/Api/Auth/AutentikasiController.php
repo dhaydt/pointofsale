@@ -63,8 +63,8 @@ class AutentikasiController extends Controller
                 'email' => $user['email'],
                 'phone' => $user['phone'],
                 'nik' => $user['nik'],
-                'cabang' => Office::find($user['detail']['cabang_id'])['nama_office'],
-                'outlet' => Outlet::find($user['detail']['outlet_id'])['nama_outlet'],
+                'cabang' => Office::find($user['detail']['cabang_id'])['nama_office'] ?? 'invalid cabang / office',
+                'outlet' => Outlet::find($user['detail']['outlet_id'])['nama_outlet'] ?? 'invalid outlet',
             ];
 
             return response()->json(['status' => 'success', 'data' => $dataUser, 'token' => $loginLogs->token]);
