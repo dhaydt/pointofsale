@@ -17,6 +17,9 @@ class Absen extends Model
         'lokasi_masuk',
         'jam_pulang',
         'lokasi_pulang',
+        'type',
+        'time',
+        'location',
         'keterangan'
     ];
 

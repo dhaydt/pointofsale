@@ -59,12 +59,12 @@
                         @foreach ($absen as $i => $item)
                         <tr>
                             <td class="align-middle text-center">{{ ($page - 1) * $total_show + $i +1 }}</td>
-                            <td class="align-middle text-center text-capitalize">{{ $item->user->name}}</td>
+                            <td class="align-middle text-center text-capitalize">{{ $item->users->name}}</td>
                             <td class="align-middle text-center text-capitalize">{{ $item->outlet->nama_outlet}}</td>
                             <td class="align-middle text-center text-capitalize">{{ $item->shift}}</td>
-                            <td class="align-middle text-center">{{ $item->jam_pulang }}</td>
-                            <td class="align-middle text-center text-capitalize">{{ $item->jam_masuk }}/{{ $item->jam_pulang }}</td>
-                            <td class="align-middle text-center">{{ $item->lokasi }}</td>
+                            <td class="align-middle text-center">{{ $item->type }}</td>
+                            <td class="align-middle text-center text-capitalize">{{ $item->time}}</td>
+                            <td class="align-middle text-center">{{ $item->location }}</td>
                             <td class="align-middle text-center">
                                 <div class="btn-group btn-group-sm" role="group">
                                     <button type="button" wire:click.prevent="$emit('onClickUpdateAbsen', {{ $item }})"

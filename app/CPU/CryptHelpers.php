@@ -2,6 +2,9 @@
 
 namespace App\CPU;
 
+use App\Models\LoginLogs;
+use App\Models\User;
+
 class CryptHelpers
 {
     public static function cryptToken($string, $action = 'e')
@@ -23,5 +26,15 @@ class CryptHelpers
         }
 
         return $output;
+    }
+
+    public static function getAuthApi($request){
+        $token = explode(' ', $request->header('authorization'));
+        $user_id = LoginLogs::where('token', $token[1])
+            ->where('is_active', 1)->first()['user_id'];
+
+        $user = User::with('detail')->find($user_id);
+
+        return $user;
     }
 }

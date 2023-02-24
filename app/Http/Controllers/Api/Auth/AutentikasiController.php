@@ -6,6 +6,8 @@ use App\CPU\CryptHelpers;
 use App\CPU\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\LoginLogs;
+use App\Models\Office;
+use App\Models\Outlet;
 use App\Models\User;
 use App\Models\UserLog;
 use Illuminate\Http\Request;
@@ -27,7 +29,6 @@ class AutentikasiController extends Controller
         ]);
 
         $user = User::with('detail')->where('email', $data['email'])->first();
-        dd($user);
         if (!$user) {
 
             return response()->json(Helpers::responseApi('fail', 'Email tidak ditemukan'));
@@ -62,10 +63,26 @@ class AutentikasiController extends Controller
                 'email' => $user['email'],
                 'phone' => $user['phone'],
                 'nik' => $user['nik'],
-                'outlet' => $user['outlet']['nama_outlet'] ?? 'Invalid data outlet',
+                'cabang' => Office::find($user['detail']['cabang_id'])['nama_office'],
+                'outlet' => Outlet::find($user['detail']['outlet_id'])['nama_outlet'],
             ];
 
             return response()->json(['status' => 'success', 'data' => $dataUser, 'token' => $loginLogs->token]);
         }
+    }
+
+    public function logout(Request $request)
+    {
+        $token = explode(' ', $request->header('authorization'));
+        $loginLogs = LoginLogs::where('token', $token[1])
+            ->where('is_active', 1)->first();
+
+        if ($loginLogs) {
+            $loginLogs->update([
+                'is_active' => 0,
+            ]);
+        }
+
+        return response()->json(Helpers::responseApi('success', 'logged out successfully'));
     }
 }

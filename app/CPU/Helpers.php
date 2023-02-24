@@ -16,6 +16,13 @@ class Helpers
             ];
             return $response;
         }
+        if($status == 'success'){
+            $response = [
+                'status' => $status,
+                'message' => $message
+            ];
+            return $response;
+        }
     }
     public static function getAuth($id){
         $user = User::with('role', 'detail')->find($id);

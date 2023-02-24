@@ -23,25 +23,26 @@ class Absen extends Component
     public $user_id;
     public $outlet_id;
     public $shift;
-    public $jam_masuk;
-    public $lokasi_masuk;
-    public $jam_pulang;
-    public $lokasi_pulang;
+    public $time;
+    public $location;
+    public $type;
 
     protected $rules = [
         'user_id' => 'required',
         'outlet_id' => 'required',
         'shift' => 'required',
-        'jam_masuk' => 'required_if:jam_keluar',
-        'jam_keluar' => 'required_if:jam_masuk'
+        'time' => 'required',
+        'location' => 'required',
+        'type' => 'required'
     ];
     
     protected $messages = [
         'user_id.required' => 'Pilih karyawan',
         'outlet_id' => 'pilih outlet',
         'shift' => 'pilih shift',
-        'jam_masuk' => 'jam masuk atau keluar diperlukan',
-        'jam_keluar' => 'jam masuk atau keluar diperlukan'
+        'type' => 'Select type',
+        'time' => 'Waktu absen diperlukan',
+        'location' => 'lokasi absen diperlukan'
     ];
 
     public function render()

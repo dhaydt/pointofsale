@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AbsenController;
 use App\Http\Controllers\Api\Auth\AutentikasiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('login', [AutentikasiController::class, 'login']);
+Route::middleware('api.auth')->group(function(){
+    Route::post('logout', [AutentikasiController::class, 'logout']);
+
+    Route::post('absen_post', [AbsenController::class, 'clock_check']);
+});
