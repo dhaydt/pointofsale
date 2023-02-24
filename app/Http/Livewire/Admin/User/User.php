@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Admin\User;
 
 use App\CPU\Helpers;
 use App\CPU\imageManager;
+use App\Models\Office;
+use App\Models\Outlet;
 use App\Models\Role;
 use App\Models\User as ModelsUser;
 use App\Models\User_detail;
@@ -17,7 +19,7 @@ class User extends Component
     use WithPagination;
     use WithFileUploads;
     public $paginationTheme = 'bootstrap';
-    public $listeners = ['simpan', 'update', 'setDataUser', 'updateForm', 'hapus', 'refreshUser' => '$refresh'];
+    public $listeners = ['simpan', 'update', 'setDataUser', 'updateForm','getOutlets', 'hapus', 'refreshUser' => '$refresh'];
     public $total_show = 10;
     public $search;
     public $title;
@@ -58,10 +60,8 @@ class User extends Component
     public $country = [];
     public $role;
     public $jab;
-    public $office = [
-        'o1', 'o2', 'o3',
-    ];
-    public $outlet = ['out1', 'out2', 'out3'];
+    public $office = [];
+    public $outlet = [];
     public $nikah;
     public $bank_list;
 
@@ -86,13 +86,23 @@ class User extends Component
         return view('livewire.admin.user.user', $data);
     }
 
+    public function getOutlets()
+    {
+        if ($this->cabang_id != '') {
+            $this->outlet = Helpers::getOutlet($this->cabang_id);
+            $this->outlet_id = '';
+        }
+    }
+
     public function updateForm()
     {
+
         $user = ModelsUser::with('detail')->find($this->u_id);
         $detail = User_detail::where('user_id', $this->u_id)->first();
         if (!$user) {
             $this->emit('finishDataUser', 0, 'Admin / Karyawan Tidak ditemukan!');
         }
+
         $dir = 'profile';
         $dir_ktp = 'ktp';
 
@@ -181,9 +191,10 @@ class User extends Component
         $this->status = $user->detail->status;
         $this->rekening = $user->detail->rekening;
         $this->bank = $user->detail->bank;
-
+        
         $this->cabang_id = $user->detail->cabang_id;
         $this->outlet_id = $user->detail->outlet_id;
+        $this->outlet = Helpers::getOutlet($this->cabang_id);
         $this->jabatan = $user->detail->jabatan;
         $this->keterangan = $user->keterangan;
         $this->role_id = $user->role_id;
@@ -193,6 +204,7 @@ class User extends Component
     public function mount($title)
     {
         $this->title = $title;
+        $this->office = Office::get();
     }
 
     public function hapus($id)

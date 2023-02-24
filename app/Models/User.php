@@ -56,6 +56,10 @@ class User extends Authenticatable
         return $this->belongsTo(User_detail::class, 'id', 'user_id');
     }
 
+    public function outlet(){
+        return $this->belongsTo(Outlet::class,'outlet_id');
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id');

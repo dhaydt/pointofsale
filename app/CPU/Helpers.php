@@ -2,11 +2,21 @@
 
 namespace App\CPU;
 
+use App\Models\Office;
 use App\Models\Outlet;
 use App\Models\User;
 
 class Helpers
 {
+    public static function responseApi($status, $message){
+        if($status == 'fail'){
+            $response = [
+                'status' => $status,
+                'message' => $message
+            ];
+            return $response;
+        }
+    }
     public static function getAuth($id){
         $user = User::with('role', 'detail')->find($id);
 
@@ -37,6 +47,13 @@ class Helpers
         $outlet = Outlet::where(['office_id' => $id])->get();
 
         return $outlet;
+    }
+    
+    public static function getOffice($id)
+    {
+        $office = Office::find($id);
+
+        return $office;
     }
 
     public static function defaultPassword()
