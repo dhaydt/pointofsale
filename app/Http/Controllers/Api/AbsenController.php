@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class AbsenController extends Controller
 {
+    public function history(Request $request){
+        $user = CryptHelpers::getAuthApi($request);
+
+        $absen = Absen::with('users', 'outlet')->select('id', 'user_id', 'outlet_id', 'shift', 'time', 'type', 'location')->where(['user_id' => $user['id'], 'outlet_id' => $user['outlet_id']])->orderBy('created_at', 'desc')->get();
+
+        return response()->json(['status' => 'success', 'data' => $absen]);
+    }
     public function clock_check(Request $request){
         $request->validate([
             "shift" => 'required',

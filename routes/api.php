@@ -25,4 +25,5 @@ Route::middleware('api.auth')->group(function(){
     Route::post('logout', [AutentikasiController::class, 'logout']);
 
     Route::post('absen_post', [AbsenController::class, 'clock_check']);
+    Route::post('absen_history', [AbsenController::class, 'history']);
 });

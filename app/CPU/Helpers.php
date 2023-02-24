@@ -4,10 +4,15 @@ namespace App\CPU;
 
 use App\Models\Office;
 use App\Models\Outlet;
+use App\Models\Role;
 use App\Models\User;
 
 class Helpers
 {
+    public static function getRole($id){
+        $role = Role::find($id);
+        return $role;
+    }
     public static function responseApi($status, $message){
         if($status == 'fail'){
             $response = [
