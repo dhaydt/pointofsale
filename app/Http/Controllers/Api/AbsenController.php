@@ -30,10 +30,17 @@ class AbsenController extends Controller
         $jam_pulang= $request->time;
         $jam_masuk = $request->time;
 
+        $outlet = $user['detail'];
+        if($outlet){
+            $outlet = $user['detail']['outlet_id'];
+        }else{
+            $outlet = 'Invalid outlet';
+        }
+
         
         Absen::create([
             'user_id' => $user['id'],
-            'outlet_id' => $user['detail']['outlet_id'],
+            'outlet_id' => $outlet,
             'shift' => $request->shift,
             'type' => $request->type,
             'time' => $request->time,
