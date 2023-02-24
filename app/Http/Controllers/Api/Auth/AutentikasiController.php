@@ -57,14 +57,38 @@ class AutentikasiController extends Controller
             // $request->session()->put('user_id', $loginLogs->user_id);
             // $request->session()->put('token', $loginLogs->token);
             // $request->session()->put('user_log_id', $user_logs->id);
+            $cabang = $user['detail'];
+            if($cabang){
+                $cabang = $user['detail']['cabang_id'];
+                $outlet = $user['detail']['outlet_id'];
+                if($cabang){
+                    $cabang = Office::find($user['detail']['cabang_id'])['nama_office'];
+                }else{
+                    $cabang = 'Invalid user detail';
+                }
+                if($outlet){
+                    $cabang = Outlet::find($user['detail']['outlet_id'])['nama_outlet'];
+                }else{
+                    $cabang = 'Invalid user detail';
+                }
+            }else{
+                $cabang = 'Invalid cabang';
+                $outlet = 'Invalid Outlet';
+            }
+
+
+            if(!$cabang){
+                $cabang = 'Invalid cabang';
+            }
+            
 
             $dataUser = [
                 'name' => $user['name'],
                 'email' => $user['email'],
                 'phone' => $user['phone'],
                 'nik' => $user['nik'],
-                'cabang' => Office::find($user['detail']['cabang_id'])['nama_office'] ?? 'invalid cabang / office',
-                'outlet' => Outlet::find($user['detail']['outlet_id'])['nama_outlet'] ?? 'invalid outlet',
+                'cabang' => $cabang,
+                'outlet' => $outlet,
             ];
 
             return response()->json(['status' => 'success', 'data' => $dataUser, 'token' => $loginLogs->token]);
