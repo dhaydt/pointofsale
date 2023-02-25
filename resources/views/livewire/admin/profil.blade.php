@@ -248,7 +248,7 @@
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Outlet</label>
                         <div class="col-lg-8 fv-row">
-                            <span class="fw-semibold text-gray-800 fs-6">{{ $user['outlet']['nama_outlet'] }}</span>
+                            <span class="fw-semibold text-gray-800 fs-6">{{ $user['outlet']['nama_outlet'] ?? 'Invalid Outlet' }}</span>
                         </div>
                     </div>
                     <div class="row mb-7">
