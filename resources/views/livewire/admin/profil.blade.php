@@ -265,7 +265,8 @@
                     </div>
                     <!--end::Card title-->
                     <!--begin::Action-->
-                    <a href="settings.html" class="btn btn-sm btn-primary align-self-center">Edit Profile</a>
+                    <button data-bs-toggle="modal" data-bs-target="#modal_profile" class="btn btn-sm btn-primary align-self-center">Ubah Profil</button>
+                    @include('livewire.admin.partials.form_edit_profil')
                     <!--end::Action-->
                 </div>
                 <!--begin::Card header-->
@@ -478,26 +479,18 @@
                                     fill="currentColor"></rect>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->
-                        <!--end::Icon-->
-                        <!--begin::Wrapper-->
+                        @if($bank == "" || $rekening == "")
                         <div class="d-flex flex-stack flex-grow-1">
-                            <!--begin::Content-->
                             <div class="fw-semibold">
-                                <h4 class="text-gray-900 fw-bold">We need your attention!</h4>
-                                <div class="fs-6 text-gray-700">Your payment was declined. To start using tools, please
-                                    <a class="fw-bold" href="billing.html">Add Payment Method</a>.
+                                <h4 class="text-gray-900 fw-bold">Perhatian!</h4>
+                                <div class="fs-6 text-gray-700">Nomor Rekening atau Bank anda belum di isi!
                                 </div>
                             </div>
-                            <!--end::Content-->
                         </div>
-                        <!--end::Wrapper-->
+                        @endif
                     </div>
-                    <!--end::Notice-->
                 </div>
-                <!--end::Card body-->
             </div>
         </div>
-        <!--end::Post-->
     </div>
 </div>

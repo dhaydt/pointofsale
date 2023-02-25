@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\CPU\Helpers;
 use App\Models\User;
 use Livewire\Component;
 
@@ -40,6 +41,7 @@ class Profil extends Component
 
     public $photo;
     public $photo_ktp;
+    public $country;
 
     public function render()
     {
@@ -68,6 +70,7 @@ class Profil extends Component
         $this->no_kk = $user->detail->no_kk ?? '';
         $this->rekening = $user->detail->rekening ?? '';
         $this->bank = $user->detail->bank ?? '';
+        $this->country = Helpers::getCountry();
 
         $data['user'] = $user;
 
