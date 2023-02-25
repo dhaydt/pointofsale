@@ -17,7 +17,7 @@
                     <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
                         <div class="me-7 mb-4">
                             <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                                <img src="{{ asset($photo) }}" alt="image">
+                                <img src="{{ asset($photo) }}" alt="image" onerror="this.src='{{ asset('assets/img/user.png') }}'">
                                 {{-- <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div> --}}
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                         </div>
                         <div class="ms-7 mb-4">
                             <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative" style="width: 200px">
-                                <img class="w-100" src="{{ asset($photo_ktp) }}" alt="ktp">
+                                <img class="w-100" src="{{ asset($photo_ktp) }}" onerror="this.src='{{ asset('assets/img/ktp-logo.png') }}'" alt="ktp">
                                 {{-- <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div> --}}
                             </div>
                         </div>
