@@ -242,7 +242,7 @@
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Cabang</label>
                         <div class="col-lg-8 fv-row">
-                            <span class="fw-semibold text-gray-800 fs-6">{{ \App\CPU\Helpers::getOffice($cabang_id)['nama_office'] }}</span>
+                            <span class="fw-semibold text-gray-800 fs-6">{{ \App\CPU\Helpers::getOffice($cabang_id)['nama_office'] ?? 'Invalid Cabang' }}</span>
                         </div>
                     </div>
                     <div class="row mb-7">
