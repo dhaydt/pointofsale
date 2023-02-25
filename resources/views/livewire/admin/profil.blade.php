@@ -224,19 +224,19 @@
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">NIK</label>
                         <div class="col-lg-8">
-                            <span class="fw-bold fs-6 text-gray-800">{{ $nik }}</span>
+                            <span class="fw-bold fs-6 text-gray-800">{{ $nik ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Nomor Kartu Keluarga</label>
                         <div class="col-lg-8">
-                            <span class="fw-bold fs-6 text-gray-800">{{ $no_kk }}</span>
+                            <span class="fw-bold fs-6 text-gray-800">{{ $no_kk ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Nama</label>
                         <div class="col-lg-8">
-                            <span class="fw-bold fs-6 text-gray-800">{{ $name }}</span>
+                            <span class="fw-bold fs-6 text-gray-800">{{ $name ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-7">
@@ -255,19 +255,19 @@
                         <label class="col-lg-4 fw-semibold text-muted">Handphone
                             <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Phone number must be active" data-bs-original-title="Nomor Handphone" data-kt-initialized="1"></i></label>
                         <div class="col-lg-8 d-flex align-items-center">
-                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ $phone }}</span>
+                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ $phone ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Email</label>
                         <div class="col-lg-8">
-                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $email }}</a>
+                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $email ?? 'Belum ada data' }}</a>
                         </div>
                     </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Jenis Kelamin</label>
                         <div class="col-lg-8">
-                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $kelamin }}</a>
+                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $kelamin ?? 'Belum ada data' }}</a>
                         </div>
                     </div>
                     <div class="row mb-7">
@@ -279,61 +279,61 @@
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Alamat KTP</label>
                         <div class="col-lg-8">
-                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $alamat_ktp }}</a>
+                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $alamat_ktp ?? 'Belum ada data' }}</a>
                         </div>
                     </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Domisili</label>
                         <div class="col-lg-8">
-                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $domisili }}</a>
+                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $domisili ?? 'Belum ada data' }}</a>
                         </div>
                     </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Tempat Lahir</label>
                         <div class="col-lg-8">
-                            <span class="fw-bold fs-6 text-gray-800">{{ $tempat_lahir }}</span>
+                            <span class="fw-bold fs-6 text-gray-800">{{ $tempat_lahir ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-10">
                         <label class="col-lg-4 fw-semibold text-muted">Tanggal Lahir</label>
                         <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $tanggal_lahir }}</span>
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $tanggal_lahir ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-10">
                         <label class="col-lg-4 fw-semibold text-muted">Kewarganegaraan</label>
                         <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $kewarganegaraan}}</span>
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $kewarganegaraan ?? 'Belum ada data'}}</span>
                         </div>
                     </div>
                     <div class="row mb-10">
                         <label class="col-lg-4 fw-semibold text-muted">Nama Ibu Kandung</label>
                         <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $nama_ibu }}</span>
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $nama_ibu ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-10">
                         <label class="col-lg-4 fw-semibold text-muted">Pendidikan</label>
                         <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $pendidikan }}</span>
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $pendidikan ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-10">
                         <label class="col-lg-4 fw-semibold text-muted">Jabatan</label>
                         <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $jabatan }}</span>
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $jabatan ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-10">
                         <label class="col-lg-4 fw-semibold text-muted">Rekening</label>
                         <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $rekening ?? 'Belum dimasukan' }}</span>
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $rekening ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="row mb-10">
                         <label class="col-lg-4 fw-semibold text-muted">Bank</label>
                         <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $bank ?? 'Belum dimasukan' }}</span>
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $bank ?? 'Belum ada data' }}</span>
                         </div>
                     </div>
                     <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
