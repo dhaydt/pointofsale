@@ -21,6 +21,7 @@ class Absen extends Component
     public $total_show = 10;
 
     public $user_id;
+    public $absen_id;
     public $outlet_id;
     public $shift;
     public $time;
@@ -67,5 +68,21 @@ class Absen extends Component
 
     public function mount($title){
         $this->title = $title;
+    }
+
+    public function delete()
+    {
+        $cabang = ModelsAbsen::find($this->absen_id);
+
+        if (!$cabang) {
+            return session()->flash('fail', 'Data absen tidak ditemukan!');
+        }
+        // $name = $cabang->nama_cabang;
+
+        $cabang->delete();
+        $this->emit('finishAbsen', 1, 'Data Abse berhasil dihapus!');
+        $this->emit('refresh');
+
+        return session()->flash('success', 'Data Absen Berhasil dihapus');
     }
 }

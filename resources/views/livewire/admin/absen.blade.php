@@ -249,7 +249,7 @@
         })
 
         Livewire.on('onClickRefresh', (id) => {
-            Livewire.emit('refreshabsen')
+            Livewire.emit('refreshAbsen')
             alertMessage(1, 'Data berhasil diperbarui!')
         })
 

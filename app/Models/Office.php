@@ -13,4 +13,9 @@ class Office extends Model
     protected $fillable = [
         'nama_office', 'phone', 'email', 'address',
     ];
+
+    public function outlets()
+    {
+        return $this->hasMany(Outlet::class, 'office_id', 'id');
+    }
 }

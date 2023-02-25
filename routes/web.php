@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\OutletController;
 use App\Http\Controllers\Admin\PayrollController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AutentikasiController;
@@ -63,6 +64,7 @@ Route::middleware('auth.user')->group(function () {
     Route::get('payroll', [PayrollController::class, 'index'])->name('payroll');
     Route::get('news', [NewsController::class, 'index'])->name('news');
     Route::get('absen', [AbsenController::class, 'index'])->name('absen');
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
 
     Route::group(['namespace' => 'user', 'prefix' => 'user'], function () {
         Route::get('detail/', [UserController::class, 'detail'])->name('user.detail');
