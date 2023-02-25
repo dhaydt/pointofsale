@@ -35,7 +35,7 @@
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
-                                        <a href="javascript:" class="btn text-capitalize btn-sm btn-light-success fw-bold ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">{{ \App\CPU\Helpers::getRole($role_id)['role'] }}</a>
+                                        <a href="javascript:" class="btn text-capitalize btn-sm btn-light-success fw-bold ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">{{ \App\CPU\Helpers::getRole($role_id)['role'] ?? 'Invalid Role' }}</a>
                                     </div>
                                     <!--end::Name-->
                                     <!--begin::Info-->
