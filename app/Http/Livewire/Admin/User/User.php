@@ -167,6 +167,20 @@ class User extends Component
     {
         $user = ModelsUser::with('detail')->find($id);
 
+        $checkDetail = User_detail::where('user_id', $id)->first();
+        if(!$checkDetail){
+            $new = new User_detail();
+            $new->user_id = $id;
+            $new->full_name = $user->name;
+            $new->outlet_id = $user->outlet_id;
+            $new->cabang_id = Outlet::find($user->outlet_id)['office_id'];
+            $new->phone = $user->phone;
+            $new->email = $user->email;
+            $new->nik = $user->nik;
+            $new->save();
+        }
+        
+        $user = ModelsUser::with('detail')->find($id);
         if (!$user) {
             return session()->flash('fail', 'Data tidak ditemukan!');
         }

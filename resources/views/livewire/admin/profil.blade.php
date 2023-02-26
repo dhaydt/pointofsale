@@ -265,13 +265,19 @@
                     </div>
                     <!--end::Card title-->
                     <!--begin::Action-->
-                    <button data-bs-toggle="modal" data-bs-target="#modal_profile" class="btn btn-sm btn-primary align-self-center">Ubah Profil</button>
+                    <div class="d-flex">
+                        <button data-bs-toggle="modal" data-bs-target="#modal_profile" class="btn btn-sm btn-primary me-3 align-self-center">Ubah Profil</button>
+                        <button data-bs-toggle="modal" data-bs-target="#password_change" class="btn btn-sm btn-success align-self-center">Ubah Password</button>
+                    </div>
                     @include('livewire.admin.partials.form_edit_profil')
                     <!--end::Action-->
                 </div>
                 <!--begin::Card header-->
                 <!--begin::Card body-->
                 <div class="card-body p-9">
+                    <div class="row justify-content-center">
+                        @include('livewire.helper.alert-session')
+                    </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">NIK</label>
                         <div class="col-lg-8">
@@ -426,6 +432,16 @@
                         </div>
                     </div>
                     <div class="row mb-10">
+                        <label class="col-lg-4 fw-semibold text-muted">Status Pernikahan</label>
+                        <div class="col-lg-8">
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $status ?? 'Belum ada data' }}
+                                @if($status == '')
+                                Belum ada data
+                                @endif
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mb-10">
                         <label class="col-lg-4 fw-semibold text-muted">Pendidikan</label>
                         <div class="col-lg-8">
                             <span class="fw-semibold fs-6 text-gray-800">{{ $pendidikan ?? 'Belum ada data' }}
@@ -465,6 +481,7 @@
                             </span>
                         </div>
                     </div>
+                    @if($bank == "" || $rekening == "")
                     <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
                         <!--begin::Icon-->
                         <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
@@ -479,7 +496,6 @@
                                     fill="currentColor"></rect>
                             </svg>
                         </span>
-                        @if($bank == "" || $rekening == "")
                         <div class="d-flex flex-stack flex-grow-1">
                             <div class="fw-semibold">
                                 <h4 class="text-gray-900 fw-bold">Perhatian!</h4>
@@ -487,10 +503,44 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@push('js')
+<script>
+    $(document).ready(function () {
+        });
+
+        window.addEventListener('contentChange', event => {
+
+        })
+
+        $('#profile').change(function(){
+            $('#placeholder').addClass('d-none');
+        });
+
+        Livewire.on('finishProfile', (status, message) => {
+            $('#modal_profile').modal('hide');
+            alertMessage(1, 'Profil Berhasil di ubah!')
+        })
+        Livewire.on('finishPassword', (status, message) => {
+            $('#password_change').modal('hide');
+            alertMessage(1, 'Password Berhasil di ubah!')
+        })
+
+        // Livewire.on("finishDataUser", (status, message) => {
+        //     alertMessage(status, message)
+        // })
+
+
+        Livewire.on('onClickRefresh', (id) => {
+            Livewire.emit('refreshUser')
+            alertMessage(1, 'Data berhasil diperbarui!')
+        })
+</script>
+@endpush

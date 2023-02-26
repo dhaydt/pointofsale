@@ -49,13 +49,15 @@
                             <td>{{ ($page - 1) * $total_show + $index + 1 }}</td>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <img src="{{ asset('/'.$item->detail->img) }}" onerror="this.src='{{ asset('assets/img/users.png') }}'" alt="" style="height: 80px;">
+                                @if ($item->detail)
+                                <img src="{{ asset('/'.$item->detail->img) ?? '' }}" onerror="this.src='{{ asset('assets/img/users.png') }}'" alt="" style="height: 80px;">
+                                @endif
                             </td>
                             <td>{{ $item->nik }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->phone }}</td>
-                            <td>{{ \App\CPU\Helpers::getOffice($item->detail->cabang_id)['nama_office'] ?? 'Invalid cabang' }}</td>
-                            <td>{{ \App\Models\Outlet::find($item->detail->outlet_id)['nama_outlet'] ?? 'Invalid outlet' }}</td>
+                            <td>@if ($item->detail){{ \App\CPU\Helpers::getOffice($item->detail->cabang_id)['nama_office'] ?? 'Invalid cabang' }}@endif</td>
+                            <td>@if ($item->detail){{ \App\Models\Outlet::find($item->detail->outlet_id)['nama_outlet'] ?? 'Invalid outlet' }}@endif</td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-sm btn-icon btn-success" data-bs-toggle="tooltip"
