@@ -266,8 +266,8 @@
                     <!--end::Card title-->
                     <!--begin::Action-->
                     <div class="d-flex">
-                        <button data-bs-toggle="modal" data-bs-target="#modal_profile" class="btn btn-sm btn-primary me-3 align-self-center">Ubah Profil</button>
                         <button data-bs-toggle="modal" data-bs-target="#password_change" class="btn btn-sm btn-success align-self-center">Ubah Password</button>
+                        <button data-bs-toggle="modal" data-bs-target="#modal_profile" class="btn btn-sm btn-primary ms-3 align-self-center">Ubah Profil</button>
                     </div>
                     @include('livewire.admin.partials.form_edit_profil')
                     <!--end::Action-->
