@@ -149,7 +149,7 @@ class Profil extends Component
 
         if ($this->img != null) {
             $imageName = Carbon::now()->toDateString().'-'.uniqid().'.'.'png';
-            imageManager::delete($user->detail->img);
+            imageManager::delete($detail->img);
             $this->img->storeAs('public/'.$dir, $imageName);
             $detail->img = 'storage/profile/'.$imageName;
         }
