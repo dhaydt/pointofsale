@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AbsenController;
 use App\Http\Controllers\Api\Auth\AutentikasiController;
+use App\Http\Controllers\Api\ProfileControlller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', [AutentikasiController::class, 'login']);
 Route::middleware('api.auth')->group(function(){
     Route::post('logout', [AutentikasiController::class, 'logout']);
+
+    Route::post('/profile', [ProfileControlller::class, 'index']);
+    Route::post('/profile_update', [ProfileControlller::class, 'update']);
+    Route::post('/profile_password', [ProfileControlller::class, 'update_password']);
 
     Route::post('absen_post', [AbsenController::class, 'clock_check']);
     Route::post('absen_history', [AbsenController::class, 'history']);

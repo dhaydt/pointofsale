@@ -33,7 +33,7 @@ class CryptHelpers
         $user_id = LoginLogs::where('token', $token[1])
             ->where('is_active', 1)->first()['user_id'];
 
-        $user = User::with('detail')->find($user_id);
+        $user = User::with('detail', 'outlet')->find($user_id);
 
         return $user;
     }
