@@ -108,7 +108,7 @@ class ProfileControlller extends Controller
         $detail->tanggal_lahir = $request->tanggal_lahir;
         $detail->kelamin = $request->kelamin;
         $detail->agama = $request->agama;
-        $detail->alamat_lengkap = $request->alamat;
+        $detail->alamat_lengkap = $request->alamat_ktp;
         $detail->alamat_domisili = $request->domisili;
         $detail->kewarganegaraan = $request->kewarganegaraan;
         $detail->nama_ibu = $request->nama_ibu;
