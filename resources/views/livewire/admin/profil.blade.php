@@ -278,6 +278,20 @@
                     <div class="row justify-content-center">
                         @include('livewire.helper.alert-session')
                     </div>
+                    <h3 class="text-end">
+                        <span class="text-muted fw-semibold fs-14">Informasi Akun</span>
+                        <hr>
+                    </h3>
+                    <div class="row mb-7">
+                        <label class="col-lg-4 fw-semibold text-muted">Nama</label>
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">{{ $name ?? 'Belum ada data' }}
+                                @if($name == '')
+                                Belum ada data
+                                @endif
+                            </span>
+                        </div>
+                    </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">NIK</label>
                         <div class="col-lg-8">
@@ -298,16 +312,47 @@
                             </span>
                         </div>
                     </div>
-                    <div class="row mb-7">
-                        <label class="col-lg-4 fw-semibold text-muted">Nama</label>
+                    <div class="row">
+                        <label class="col-lg-4 fw-semibold text-muted">Email</label>
                         <div class="col-lg-8">
-                            <span class="fw-bold fs-6 text-gray-800">{{ $name ?? 'Belum ada data' }}
-                                @if($name == '')
+                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $email ??
+                                'Belum ada data' }}
+                                @if($email == '')
+                                Belum ada data
+                                @endif
+                            </a>
+                        </div>
+                    </div>
+
+                    <h3 class="text-end">
+                        <span class="text-muted fw-semibold fs-14">Informasi Bank</span>
+                        <hr>
+                    </h3>
+                    <div class="row mb-10">
+                        <label class="col-lg-4 fw-semibold text-muted">Rekening</label>
+                        <div class="col-lg-8">
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $rekening ?? 'Belum ada data' }}
+                                @if($rekening == '')
                                 Belum ada data
                                 @endif
                             </span>
                         </div>
                     </div>
+                    <div class="row">
+                        <label class="col-lg-4 fw-semibold text-muted">Bank</label>
+                        <div class="col-lg-8">
+                            <span class="fw-semibold fs-6 text-gray-800">{{ $bank ?? 'Belum ada data' }}
+                                @if($bank == '')
+                                Belum ada data
+                                @endif
+                            </span>
+                        </div>
+                    </div>
+                    <h3 class="text-end">
+                        <span class="text-muted fw-semibold fs-14">Biodata</span>
+                        <hr>
+                    </h3>
+                    
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Cabang</label>
                         <div class="col-lg-8 fv-row">
@@ -335,17 +380,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="row mb-7">
-                        <label class="col-lg-4 fw-semibold text-muted">Email</label>
-                        <div class="col-lg-8">
-                            <a href="javascript:" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{ $email ??
-                                'Belum ada data' }}
-                                @if($email == '')
-                                Belum ada data
-                                @endif
-                            </a>
-                        </div>
-                    </div>
+                  
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-semibold text-muted">Jenis Kelamin</label>
                         <div class="col-lg-8">
@@ -461,26 +496,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="row mb-10">
-                        <label class="col-lg-4 fw-semibold text-muted">Rekening</label>
-                        <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $rekening ?? 'Belum ada data' }}
-                                @if($rekening == '')
-                                Belum ada data
-                                @endif
-                            </span>
-                        </div>
-                    </div>
-                    <div class="row mb-10">
-                        <label class="col-lg-4 fw-semibold text-muted">Bank</label>
-                        <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">{{ $bank ?? 'Belum ada data' }}
-                                @if($bank == '')
-                                Belum ada data
-                                @endif
-                            </span>
-                        </div>
-                    </div>
+                    
                     @if($bank == "" || $rekening == "")
                     <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
                         <!--begin::Icon-->
